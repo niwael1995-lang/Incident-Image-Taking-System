@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import craneChecklist from '../constants/checklists/Cranes/mobile-crane-operator-pre-use.json';
+import generalChecklist from '../constants/checklists/General/general-equipment.json';
+import { GeneralEquipmentForm } from './GeneralEquipmentForm';
 import { CranesForm } from './CranesForm';
 
 interface ChecklistsProps {
@@ -12,7 +14,8 @@ export const Checklists: React.FC<ChecklistsProps> = ({ onBack, appTheme = 'dark
   const [activeTab, setActiveTab] = useState<string>('Crane');
 
   const tabs = [
-    { key: 'Crane', label: 'Crane', data: craneChecklist }
+    { key: 'Crane', label: 'Crane', data: craneChecklist },
+    { key: 'General', label: 'General Equipment', data: generalChecklist }
   ];
 
   const activeData = tabs.find(t => t.key === activeTab)?.data || [];
@@ -43,6 +46,8 @@ export const Checklists: React.FC<ChecklistsProps> = ({ onBack, appTheme = 'dark
       <div className={`p-6 rounded-2xl border ${isLight ? 'bg-white border-slate-200' : 'bg-white/[0.03] border-white/10'}`}>
         {activeTab === 'Crane' ? (
           <CranesForm onBack={onBack} appTheme={appTheme} />
+        ) : activeTab === 'General' ? (
+          <GeneralEquipmentForm onBack={onBack} appTheme={appTheme} />
         ) : (
           <>
             <h3 className="text-lg font-black mb-4">{activeTab} / Mobile Crane Operator Pre-Use</h3>

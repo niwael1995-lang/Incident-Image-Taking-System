@@ -1,0 +1,60 @@
+[
+  {
+    "title": "GENERAL EQUIPMENT PRE-USE",
+    "items": [
+      "Reference No",
+      "Date",
+      "Equipment Make / Model",
+      "Plate / Asset No",
+      "Inspector / Operator"
+    ]
+  },
+  {
+    "title": "VISUAL INSPECTION",
+    "items": [
+      "No visible structural damage",
+      "No loose or missing fasteners",
+      "Safety guards intact and secure",
+      "Decals and warnings legible",
+      "No fluid leaks"
+    ]
+  },
+  {
+    "title": "FUNCTIONALITY",
+    "items": [
+      "Controls operate smoothly",
+      "Start / stop functions correctly",
+      "Emergency stop tested",
+      "Brakes / steering functioning",
+      "Lights / indicators operational"
+    ]
+  },
+  {
+    "title": "SAFETY ITEMS",
+    "items": [
+      "PPE available and serviceable",
+      "Fire extinguisher present and in-date",
+      "Lockout / tagout devices available",
+      "Guarding and barriers in place",
+      "Warning signs in good condition"
+    ]
+  },
+  {
+    "title": "MOBILITY & POWER",
+    "items": [
+      "Tyres / tracks serviceable",
+      "Battery secure and charged",
+      "Fuel / hydraulic levels adequate",
+      "No abnormal noises during operation"
+    ]
+  },
+  {
+    "title": "REMARKS & SIGNOFF",
+    "items": [
+      "General Remarks",
+      "Inspector Name",
+      "Signature",
+      "Date"
+    ]
+  }
+]
