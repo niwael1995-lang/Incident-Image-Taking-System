@@ -70,7 +70,26 @@ export const Checklists: React.FC<ChecklistsProps> = ({ onBack, appTheme = 'dark
 
       <div className={`p-6 rounded-2xl border ${isLight ? 'bg-white border-slate-200' : 'bg-white/[0.03] border-white/10'}`}>
         {activeTab === 'Crane' ? (
-          <CranesForm onBack={onBack} appTheme={appTheme} />
+          <>
+            <div className="mb-6">
+              <h3 className="text-lg font-black mb-4">Crane / Mobile Crane Operator Pre-Use</h3>
+              {craneChecklist.map((section: any, idx: number) => (
+                <div key={idx} className="mb-4">
+                  <h4 className="font-bold uppercase text-sm mb-2">{section.title}</h4>
+                  <ul className="list-disc pl-5 text-sm">
+                    {section.items && section.items.length ? (
+                      section.items.map((it: string, i: number) => <li key={i}>{it}</li>)
+                    ) : (
+                      <li className="opacity-50">No items</li>
+                    )}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6">
+              <CranesForm onBack={onBack} appTheme={appTheme} />
+            </div>
+          </>
         ) : activeTab === 'General' ? (
           <GeneralEquipmentForm onBack={onBack} appTheme={appTheme} />
         ) : (
