@@ -47,6 +47,8 @@ export const CranesForm: React.FC<{ onBack: () => void; appTheme?: 'dark' | 'lig
       const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
       existing.push(payload);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+      // notify parent UI to refresh saved list
+      try { window.dispatchEvent(new CustomEvent('checklistSaved', { detail: { type: 'Crane' } })); } catch(e){}
       alert('Checklist saved locally');
     } catch (e) {
       console.error(e);

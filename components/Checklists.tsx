@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import craneChecklist from '../constants/checklists/Cranes/mobile-crane-operator-pre-use.json';
 import generalChecklist from '../constants/checklists/General/general-equipment.json';
 import { GeneralEquipmentForm } from './GeneralEquipmentForm';
@@ -19,6 +19,31 @@ export const Checklists: React.FC<ChecklistsProps> = ({ onBack, appTheme = 'dark
   ];
 
   const activeData = tabs.find(t => t.key === activeTab)?.data || [];
+  const [savedEntries, setSavedEntries] = useState<any[]>([]);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const storageKeyFor = (tabKey: string) => {
+    if (tabKey === 'Crane') return 'crane_checklist_submissions';
+    if (tabKey === 'General') return 'general_equipment_submissions';
+    return '';
+  };
+
+  const loadSaved = () => {
+    const key = storageKeyFor(activeTab);
+    if (!key) { setSavedEntries([]); return; }
+    try {
+      const data = JSON.parse(localStorage.getItem(key) || '[]');
+      setSavedEntries(Array.isArray(data) ? data : []);
+    } catch (e) { setSavedEntries([]); }
+  };
+
+  useEffect(() => {
+    loadSaved();
+    const handler = (e: any) => { loadSaved(); };
+    window.addEventListener('checklistSaved', handler);
+    return () => window.removeEventListener('checklistSaved', handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab]);
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -64,6 +89,32 @@ export const Checklists: React.FC<ChecklistsProps> = ({ onBack, appTheme = 'dark
               </div>
             ))}
           </>
+        )}
+      </div>
+
+      <div className="mt-6 max-w-4xl mx-auto">
+        <h3 className={`text-lg font-black mb-3 ${isLight ? 'text-slate-900' : 'text-white'}`}>Saved Checklists</h3>
+        {savedEntries.length === 0 ? (
+          <div className={`p-4 rounded border ${isLight ? 'bg-white border-slate-200' : 'bg-white/[0.02] border-white/5'}`}>No saved checklists for {activeTab}.</div>
+        ) : (
+          <div className="space-y-3">
+            {savedEntries.map((entry, idx) => (
+              <div key={idx} className={`p-3 rounded border ${isLight ? 'bg-white border-slate-200' : 'bg-white/[0.02] border-white/5'}`}>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-sm font-black">{activeTab} Checklist #{idx + 1}</div>
+                    <div className="text-[11px] opacity-70">Saved: {new Date(entry.savedAt || entry.savedAt || Date.now()).toLocaleString()}</div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button onClick={() => setExpandedIndex(expandedIndex === idx ? null : idx)} className="py-1 px-3 border rounded text-sm">{expandedIndex === idx ? 'Hide' : 'View'}</button>
+                  </div>
+                </div>
+                {expandedIndex === idx && (
+                  <pre className="mt-3 overflow-auto text-[12px] p-2 rounded bg-[#020617]/5" style={{whiteSpace: 'pre-wrap'}}>{JSON.stringify(entry, null, 2)}</pre>
+                )}
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </div>

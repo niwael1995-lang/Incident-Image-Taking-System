@@ -48,6 +48,7 @@ export const GeneralEquipmentForm: React.FC<{ onBack: () => void; appTheme?: 'da
       const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
       existing.push(payload);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+      try { window.dispatchEvent(new CustomEvent('checklistSaved', { detail: { type: 'General' } })); } catch(e){}
       alert('Form saved locally');
     } catch (e) {
       console.error(e);
