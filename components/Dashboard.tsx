@@ -403,6 +403,25 @@ export const Dashboard: React.FC<DashboardProps> = ({ baseId, onNavigate, appThe
                <p className={`text-[8px] sm:text-[9px] font-black uppercase tracking-[0.2em] mt-1 opacity-80 ${isLight ? 'text-slate-400' : 'text-slate-500'}`}>Review Evidence</p>
             </div>
           </button>
+
+          <button
+            onClick={() => onNavigate('checklists')}
+            className={`group relative h-24 sm:h-28 flex items-center backdrop-blur-xl border rounded-2xl sm:rounded-[2rem] overflow-hidden transition-all active:scale-[0.98] duration-300 px-6 sm:px-8 ${
+              isLight ? 'bg-white border-slate-200 hover:bg-slate-50 hover:border-slate-300' : 'bg-white/[0.04] border-white/10 hover:bg-white/[0.08] hover:border-white/20'
+            }`}
+          >
+            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform shrink-0 border ${
+              isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-800 border-white/10'
+            }`}>
+               <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 sm:h-8 sm:w-8 ${isLight ? 'text-slate-500' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7 7h10M7 11h10" />
+               </svg>
+            </div>
+            <div className="flex-1 text-left ml-4 sm:ml-6">
+               <h3 className={`text-lg sm:text-xl font-black tracking-tight leading-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>Checklists</h3>
+               <p className="text-[8px] sm:text-[9px] font-black text-blue-400 uppercase tracking-[0.2em] mt-1 opacity-80">Equipment Checklists</p>
+            </div>
+          </button>
       </div>
     </div>
   );

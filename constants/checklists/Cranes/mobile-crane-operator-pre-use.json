@@ -1,0 +1,93 @@
+[
+  {
+    "title": "Document",
+    "items": [
+      "Mobile Crane Operator Pre-Use Checklist",
+      "Equipment: Mobile Crane",
+      "Location: ",
+      "Date: ",
+      "Operator: ",
+      "Inspector: "
+    ]
+  },
+  {
+    "title": "Visual & General Condition",
+    "items": [
+      "No visible structural damage to boom or superstructure",
+      "No cracks or excessive corrosion on chassis or booms",
+      "All decals and load charts present and legible",
+      "Tires / tracks in serviceable condition",
+      "No fluid leaks (hydraulic, oil, fuel, coolant)"
+    ]
+  },
+  {
+    "title": "Controls & Instruments",
+    "items": [
+      "All operator controls function smoothly and return to neutral",
+      "Gauges operational: oil pressure, temp, fuel, hydraulic pressure",
+      "Horn, lights, beacon and alarms operational",
+      "Load moment indicator / limiter present and functioning",
+      "Emergency stop and cut-off work correctly"
+    ]
+  },
+  {
+    "title": "Hoisting Gear",
+    "items": [
+      "Wire rope condition good: no kinks, broken strands, or crushing",
+      "Hooks and safety latches undamaged and operational",
+      "Sheaves rotate freely and are not excessively worn",
+      "Winch and spooling consistent with manufacturer guidance",
+      "Anti-two block device fitted and tested"
+    ]
+  },
+  {
+    "title": "Outriggers & Stability",
+    "items": [
+      "Outriggers extend/retract correctly and lock as intended",
+      "Pads/mats available and in good condition",
+      "Level indicator present and accurate",
+      "No excessive settlement when outriggers deployed",
+      "Counterweight secure and correct per configuration"
+    ]
+  },
+  {
+    "title": "Hydraulic & Engine Systems",
+    "items": [
+      "Hydraulic hoses free from obvious damage or abrasion",
+      "Reservoir fluid level and condition acceptable",
+      "Engine starts and idles normally",
+      "Brakes and steering operate correctly",
+      "Battery secure and connections corrosion-free"
+    ]
+  },
+  {
+    "title": "Safety & PPE",
+    "items": [
+      "Operator wearing required PPE: helmet, hi-vis, gloves, boots",
+      "Fire extinguisher present and in date",
+      "Seat belt functional and used by operator",
+      "Exclusion zone established around lifts",
+      "Communications (radio/hand signals) tested"
+    ]
+  },
+  {
+    "title": "Pre-Operation Checks",
+    "items": [
+      "Load chart matches configuration for planned lift",
+      "Weather suitable for lift (wind speed acceptable)",
+      "Ground conditions assessed and suitable",
+      "Lift plan reviewed with crew and signed",
+      "Taglines and rigging inspected and rated"
+    ]
+  },
+  {
+    "title": "Operator Declaration",
+    "items": [
+      "I confirm the crane has been inspected and is safe to operate",
+      "Operator name:",
+      "Signature:",
+      "Time:",
+      "Additional comments:"
+    ]
+  }
+]

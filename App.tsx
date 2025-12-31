@@ -4,6 +4,7 @@ import { AIRTABLE_CONFIG, SAFETY_QUOTES, STORAGE_KEYS, SYSTEM_LOGO_URL } from '.
 import { CreateReportForm } from './components/CreateReportForm';
 import { RecentReports } from './components/RecentReports';
 import { Dashboard } from './components/Dashboard';
+import { Checklists } from './components/Checklists';
 import { UserProfile } from './components/UserProfile';
 import { AuthScreen } from './components/AuthScreen';
 import { TutorialModal } from './components/TutorialModal';
@@ -15,7 +16,7 @@ import { UserProfile as UserProfileType, FetchedIncident } from './types';
 import { requestNotificationPermission, sendNotification } from './services/notificationService';
 import { getAssignedCriticalIncidents } from './services/airtableService';
 
-type ViewState = 'dashboard' | 'create' | 'recent' | 'auth' | 'my-tasks';
+type ViewState = 'dashboard' | 'create' | 'recent' | 'auth' | 'my-tasks' | 'checklists';
 
 export default function App() {
   const [view, setView] = useState<ViewState>('auth');
@@ -222,6 +223,7 @@ export default function App() {
       case 'create': return <CreateReportForm baseId={baseId} appTheme={appTheme} onBack={() => setView('dashboard')} />;
       case 'recent': return <RecentReports baseId={baseId} appTheme={appTheme} onBack={() => setView('dashboard')} />;
       case 'my-tasks': return <RecentReports baseId={baseId} appTheme={appTheme} onBack={() => setView('dashboard')} filterAssignee={userProfile?.name} />;
+      case 'checklists': return <Checklists onBack={() => setView('dashboard')} appTheme={appTheme} />;
       default: return <Dashboard baseId={baseId} appTheme={appTheme} onNavigate={(target) => setView(target)} />;
     }
   };

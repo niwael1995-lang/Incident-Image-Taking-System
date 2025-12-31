@@ -253,6 +253,23 @@ export const getAssignedCriticalIncidents = async (
   return data.records as FetchedIncident[];
 };
 
+// Wrap getAssignedCriticalIncidents in a safe wrapper to avoid bubbling 422 field-mismatch
+export const safeGetAssignedCriticalIncidents = async (
+  userName: string,
+  configOverride?: AirtableConfigOverride
+): Promise<FetchedIncident[]> => {
+  try {
+    return await getAssignedCriticalIncidents(userName, configOverride);
+  } catch (err: any) {
+    const msg = err?.message || String(err);
+    if (msg.includes('Database structure mismatch') || msg.toLowerCase().includes('missing') || msg.includes('422')) {
+      console.warn('Airtable schema mismatch detected while fetching critical incidents:', msg);
+      return [];
+    }
+    throw err;
+  }
+};
+
 /**
  * Fetches reports for dashboard statistics.
  */

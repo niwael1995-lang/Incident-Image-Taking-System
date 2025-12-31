@@ -19,3 +19,4 @@ Thank you for your interest in improving the Incident Image Taking System. As a 
 -   Prioritize offline-first functionality.
 
 Safety first.
+L
